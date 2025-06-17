@@ -6,7 +6,7 @@ class Arboles():
         self.x = x
         self.y = y
 
-        ruta_arbol = os.path.join(r'luzverde-luzroja\imagenes\objetos\Oak_Tree.png')
+        ruta_arbol = os.path.join(r'imagenes\objetos\Oak_Tree.png')
         self.arbol = pygame.image.load(ruta_arbol).convert_alpha()
         self.arbol = pygame.transform.scale(self.arbol,size=(constantes.ARBOL,constantes.ARBOL))
         self.tamañoA = self.arbol.get_width()
