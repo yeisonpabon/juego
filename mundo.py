@@ -12,11 +12,11 @@ class Mundo():
         self.height = height
         self.arboles = []  # Lista para almacenar los arboles
 
-        ruta_pasto= os.path.join(r'luzverde-luzroja\imagenes\objetos\Grass_Middle.png')
+        ruta_pasto= os.path.join(r'imagenes\objetos\Path_Middle.png')
         self.pasto = pygame.image.load(ruta_pasto).convert()
         self.pasto = pygame.transform.scale(self.pasto,size=(constantes.PASTO,constantes.PASTO))
 
-        ruta_tierra = os.path.join(r'luzverde-luzroja\imagenes\objetos\Path_Middle.png')
+        ruta_tierra = os.path.join(r'imagenes\objetos\Path_Middle.png')
         self.tierra = pygame.image.load(ruta_tierra)
         self.tierra = pygame.transform.scale(self.tierra,size=(constantes.TIERRA,constantes.TIERRA))
          
