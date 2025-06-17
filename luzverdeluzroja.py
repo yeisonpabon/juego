@@ -13,9 +13,9 @@ import math
 import time
 import random
 from pantalla_gameover import game_over
-#ini cializar pygame
+
 pygame.init()
- # ...código existente...
+ 
 from usuarios_db import registrar_usuario, login_usuario
 from puntajes_db import guardar_puntaje, obtener_ranking
 
