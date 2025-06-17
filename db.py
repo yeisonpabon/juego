@@ -9,6 +9,4 @@ def conectar():
         database="videojuego"
     )
 
-#hola soy yeison
-"ciao"
-"love yourself"
+
