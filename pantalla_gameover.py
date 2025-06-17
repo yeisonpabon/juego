@@ -1,7 +1,7 @@
 import pygame
 import sys
 import constantes
-from juego.usuarios_db import obtener_ranking
+from usuarios_db import obtener_ranking
 
 def game_over(ventana, tiempo_total):
     fuente_grande = pygame.font.SysFont(None, 72)
