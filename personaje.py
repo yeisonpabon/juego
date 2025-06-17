@@ -1,10 +1,10 @@
 import pygame
 import constantes
 import os
-from juego.mundo import Mundo
-from juego.obstaculos import Arboles
+from mundo import Mundo
+from obstaculos import Arboles
 from constantes import *
-from juego.semaforo import Semaforo
+from semaforo import Semaforo
 
 
 class Personaje():
@@ -14,7 +14,7 @@ class Personaje():
         self.y = y
 
         #cargar hoja de animaciones 
-        image_path = os.path.join(r'luzverde-luzroja\imagenes\personajes\Player.png')
+        image_path = os.path.join(r'imagenes\personajes\Player.png')
         self.hoja_animaciones  = pygame.image.load(image_path).convert_alpha()
 
         #propiedade de  la animacion
@@ -30,12 +30,12 @@ class Personaje():
 
         #muñeca de frente 
      
-        muñeca_path = os.path.join(r'luzverde-luzroja\imagenes\personajes\muñecafea.png')
+        muñeca_path = os.path.join(r'imagenes\personajes\muñecafea.png')
         self.imageM =pygame.image.load(muñeca_path)
         self.imageM = pygame.transform.scale(self.imageM,size=(constantes.MUÑECA,constantes.MUÑECA))
         self.tamañoM = self.imageM.get_width()
 #mueñeca de espalda
-        muñeca_espalda_path = os.path.join(r'luzverde-luzroja\imagenes\personajes\muñecadeespaldas.png')
+        muñeca_espalda_path = os.path.join(r'imagenes\personajes\muñecadeespaldas.png')
         self.imageME = pygame.image.load(muñeca_espalda_path)
         self.imageME = pygame.transform.scale(self.imageME,size=(constantes.MUÑECA,constantes.MUÑECA))  
         self.tamañoME = self.imageME.get_width()
