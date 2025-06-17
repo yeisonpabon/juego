@@ -93,7 +93,7 @@ def Main_con_puntaje(user_id):
 
     pygame.display.set_caption('LUZ VERDE LUZ ROJA')
     pygame.mixer.init()
-    pygame.mixer.music.load(r'luzverde-luzroja\musica\musicajuego.mp3')
+    pygame.mixer.music.load(r'musica\musicajuego.mp3')
     pygame.mixer.music.set_volume(0.5)
     pygame.mixer.music.play(-1)
 
