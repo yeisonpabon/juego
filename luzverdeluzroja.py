@@ -83,7 +83,7 @@ def menu_inicio():
 
 
 # ...importaciones existentes...
-from juego.puntajes_db import guardar_puntaje
+from puntajes_db import guardar_puntaje
 
 def Main_con_puntaje(user_id):
 
@@ -214,7 +214,7 @@ def Main_con_puntaje(user_id):
 
 
 
-from juego.usuarios_db import obtener_ranking
+from usuarios_db import obtener_ranking
 
 # ...código del juego...
 # yang li no entendio 
