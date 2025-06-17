@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from tkinter import messagebox
 import playsound
-from juego.ventana2 import SessionWindow  # importamos la segunda ventana
+from ventana2 import SessionWindow  # importamos la segunda ventana
 
 # Tooltip mejorado
 import tkinter as tk
