@@ -5,19 +5,19 @@ yeison andres villegas pabon"""
 import pygame 
 import sys
 import constantes
-from juego.personaje import Personaje
-from juego.mundo import Mundo
-from juego.semaforo import Semaforo
-from juego.proyectil import Proyectil
+from personaje import Personaje
+from mundo import Mundo
+from semaforo import Semaforo
+from proyectil import Proyectil
 import math
 import time
 import random
-from juego.pantalla_gameover import game_over
+from pantalla_gameover import game_over
 #ini cializar pygame
 pygame.init()
  # ...código existente...
-from juego.usuarios_db import registrar_usuario, login_usuario
-from juego.puntajes_db import guardar_puntaje, obtener_ranking
+from usuarios_db import registrar_usuario, login_usuario
+from puntajes_db import guardar_puntaje, obtener_ranking
 
 
 
