@@ -1,6 +1,6 @@
 import pygame
 import constantes
-from juego.obstaculos import Arboles
+from obstaculos import Arboles
 import random
 import os
 
