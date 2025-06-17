@@ -8,3 +8,5 @@ def conectar():
         host="localhost",
         database="videojuego"
     )
+
+#hola soy yeison
