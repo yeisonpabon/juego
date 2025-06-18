@@ -5,19 +5,26 @@ yeison andres villegas pabon"""
 import pygame 
 import sys
 import constantes
+import math
+import time
+import random
+
 from personaje import Personaje
 from mundo import Mundo
 from semaforo import Semaforo
 from proyectil import Proyectil
-import math
-import time
-import random
 from pantalla_gameover import game_over
-#ini cializar pygame
-pygame.init()
- # ...código existente...
+from usuarios_db import obtener_ranking
 from usuarios_db import registrar_usuario, login_usuario
 from puntajes_db import guardar_puntaje, obtener_ranking
+from puntajes_db import guardar_puntaje
+
+
+
+#inicializar pygame
+pygame.init()
+ # ...código existente...
+
 
 def menu_inicio():
     while True:
@@ -51,7 +58,7 @@ def menu_inicio():
             print("Opción no válida.")
 
 # ...importaciones existentes...
-from puntajes_db import guardar_puntaje
+
 
 def Main_con_puntaje(user_id):
 
@@ -187,7 +194,7 @@ def Main_con_puntaje(user_id):
 
 
 
-from usuarios_db import obtener_ranking
+
 
 
 # Al final del juego, muestra el ranking:
