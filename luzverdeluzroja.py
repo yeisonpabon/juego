@@ -93,10 +93,13 @@ def Main_con_puntaje(user_id):
             if salio_zona_segura and tiempo_inicio is not None:
                 tiempo_final = (pygame.time.get_ticks() - tiempo_inicio) // 1000
 
-            pygame.time.delay(1500)
-            game_over(ventana, tiempo_final)
-            Main_con_puntaje(user_id)
-            return
+            jugar_otra_vez = game_over(ventana, tiempo_final)
+            if jugar_otra_vez:
+                pygame.time.delay(1500)
+                Main_con_puntaje(user_id)
+            else:
+                pygame.quit()
+                sys.exit()
 
         if salio_zona_segura:
             tiempo_actual_ticks = pygame.time.get_ticks()
@@ -149,8 +152,14 @@ def Main_con_puntaje(user_id):
         for proyectil in proyectiles:
             distancia = math.hypot(proyectil.x - jugador_centro_x, proyectil.y - jugador_centro_y)
             if distancia < proyectil.radio + jugador_radio:
-                pygame.time.wait(2000)
-                Main_con_puntaje(user_id)
+                pygame.time.wait(1000)
+
+                jugar_otra_vez = game_over(ventana, tiempo_limite - tiempo_restante)
+                if jugar_otra_vez:
+                    Main_con_puntaje(user_id)
+                else:
+                    pygame.quit()
+                    sys.exit()
                 return
 
         proyectiles = [p for p in proyectiles if 0 <= p.x <= constantes.WIDTH and 0 <= p.y <= constantes.HEIGHT]
