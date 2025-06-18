@@ -42,3 +42,7 @@ def game_over(ventana, tiempo_total):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if btn_reiniciar.collidepoint(event.pos):
                     return  # Reiniciar el juego
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    return  # Reiniciar el juego con Enter
