@@ -36,15 +36,16 @@ def game_over(ventana, tiempo_total):
     while True:
         clock.tick(60)
         for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if btn_reiniciar.collidepoint(event.pos):
+                    return True
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    return True
+                
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if btn_reiniciar.collidepoint(event.pos):
-                    return
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RETURN:
-                    return
 
         ventana.fill(BG)
         draw_rounded_rect(ventana, FRAME, frame_rect, radius=20)
