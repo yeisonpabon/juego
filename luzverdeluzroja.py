@@ -18,15 +18,12 @@ from usuarios_db import obtener_ranking
 from usuarios_db import registrar_usuario, login_usuario
 from puntajes_db import guardar_puntaje, obtener_ranking
 from puntajes_db import guardar_puntaje
-
+from pantalla_ganaste import Ganaste
 
 
 #inicializar pygame
 pygame.init()
- # ...código existente...
 
-
-# ...importaciones existentes...
 
 
 def Main_con_puntaje(user_id):
@@ -95,7 +92,7 @@ def Main_con_puntaje(user_id):
 
             jugar_otra_vez = game_over(ventana, tiempo_final)
             if jugar_otra_vez:
-                pygame.time.delay(1500)
+                pygame.time.delay(1000)
                 Main_con_puntaje(user_id)
             else:
                 pygame.quit()
@@ -109,7 +106,7 @@ def Main_con_puntaje(user_id):
             tiempo_restante = tiempo_limite
 
         if salio_zona_segura and tiempo_restante <= 0:
-            pygame.time.delay(1500)
+            pygame.time.delay(1000)
             game_over(ventana, tiempo_limite)
             Main_con_puntaje(user_id)
             return
@@ -125,15 +122,11 @@ def Main_con_puntaje(user_id):
 
         # --- GUARDAR PUNTAJE AL GANAR ---
         if personaje.x + constantes.PERSONAJE >= META_X:
-            print("GANASTE")
-            fuente = pygame.font.SysFont(None, 72)
-            texto_victoria = fuente.render("¡GANASTE!", True, (255, 255, 0))
-            ventana.blit(texto_victoria, (constantes.WIDTH // 2 - 100, constantes.HEIGHT // 2 - 36))
-            pygame.display.flip()
-            pygame.time.delay(3000)
-            guardar_puntaje(user_id, tiempo_restante)  # Guarda el puntaje del usuario
-            pygame.quit()
-            sys.exit()
+            pygame.time.delay(1500)
+            Ganaste(ventana, tiempo_limite)
+            Main_con_puntaje(user_id)
+            return
+
 
         mundo.Dibujar_mundo(ventana)
         personaje.Dibujar_personaje(ventana, semaforo)

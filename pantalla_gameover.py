@@ -28,7 +28,7 @@ def game_over(ventana, tiempo_total):
 
     # Frame central
     frame_rect = pygame.Rect(constantes.WIDTH // 2 - 200, constantes.HEIGHT // 2 - 180, 400, 400)
-    btn_reiniciar = pygame.Rect(constantes.WIDTH // 2 - 100, frame_rect.y + 270, 200, 54)
+    btn_reiniciar = pygame.Rect(constantes.WIDTH // 2 - 100, frame_rect.y + 300, 200, 54)
 
     ranking = obtener_ranking()
     clock = pygame.time.Clock()
