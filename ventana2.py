@@ -1,3 +1,4 @@
+from usuarios_db import registrar_usuario
 from usuarios_db import login_usuario
 from luzverdeluzroja import Main_con_puntaje
 
@@ -170,9 +171,12 @@ class SessionWindow:
     def registrarUsuario(self):
         usuario = self.entryLoginUsuario.get()
         password = self.entryLoginPassword.get()
-        # Aquí puedes conectar con tu base de datos o lógica de registro
+
         if not usuario or not password:
             messagebox.showerror("Error", "Por favor, ingrese usuario y contraseña.")
+            return
+        registrado =  registrar_usuario(usuario, password) 
+        if registrado :
+                messagebox.showinfo("Registro", f"Usuario {usuario} registrado exitosamente.")
         else:
-            # Aquí puedes validar y registrar el usuario
-            messagebox.showinfo("Registro", f"Usuario {usuario} registrado (esto es solo un ejemplo).")
+            messagebox.showerror("Error", "No se pudo registrar el usuario.")
