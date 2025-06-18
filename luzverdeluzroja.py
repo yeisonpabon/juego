@@ -117,7 +117,8 @@ def Main_con_puntaje(user_id):
 
         moviendose = keys[pygame.K_LEFT] or keys[pygame.K_RIGHT] or keys[pygame.K_UP] or keys[pygame.K_DOWN]
 
-        if semaforo.estado == "LUZ ROJA" and moviendose:
+        # Evita eliminar justo en el frame de cambio
+        if semaforo.estado == "LUZ ROJA" and moviendose and not semaforo.acaba_de_cambiar():
             print("¡Te moviste en LUZ ROJA!")
             tiempo_final = 0
             if salio_zona_segura and tiempo_inicio is not None:
@@ -207,4 +208,3 @@ for i, (username, puntaje) in enumerate(ranking, 1):
 if __name__ == '__main__':
     menu_inicio()
 
- 
