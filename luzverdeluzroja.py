@@ -26,37 +26,6 @@ pygame.init()
  # ...código existente...
 
 
-def menu_inicio():
-    while True:
-        print("1. Registrarse")
-        print("2. Iniciar sesión")
-        print("3. Ver ranking")
-        print("4. Salir")
-        opcion = input("Elige una opción: ")
-        if opcion == "1":
-            usuario = input("Usuario: ")
-            contraseña = input("Contraseña: ")
-            registrar_usuario(usuario, contraseña)
-        elif opcion == "2":
-            usuario = input("Usuario: ")
-            contraseña = input("Contraseña: ")
-            user_id = login_usuario(usuario, contraseña)
-            if user_id:
-                print("Login exitoso. ¡A jugar!")
-                Main_con_puntaje(user_id)
-            else:
-                print("Usuario o contraseña incorrectos.")
-        elif opcion == "3":
-            ranking = obtener_ranking()
-            print("Ranking:")
-            for i, (username, puntaje) in enumerate(ranking, 1):
-                print(f"{i}. {username} - {puntaje}")
-        elif opcion == "4":
-            print("¡Hasta luego!")
-            break
-        else:
-            print("Opción no válida.")
-
 # ...importaciones existentes...
 
 
@@ -206,5 +175,5 @@ for i, (username, puntaje) in enumerate(ranking, 1):
 
 
 if __name__ == '__main__':
-    menu_inicio()
+    from loggin import Loggin
 
