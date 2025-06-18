@@ -13,28 +13,11 @@ import math
 import time
 import random
 from pantalla_gameover import game_over
-
+#ini cializar pygame
 pygame.init()
- 
+ # ...código existente...
 from usuarios_db import registrar_usuario, login_usuario
 from puntajes_db import guardar_puntaje, obtener_ranking
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def menu_inicio():
     while True:
@@ -67,21 +50,6 @@ def menu_inicio():
         else:
             print("Opción no válida.")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # ...importaciones existentes...
 from puntajes_db import guardar_puntaje
 
@@ -103,7 +71,7 @@ def Main_con_puntaje(user_id):
     semaforo = Semaforo()
 
     META_X = 990
-    tiempo_limite = 10
+    tiempo_limite = 20
     tiempo_inicio = pygame.time.get_ticks()
 
     proyectiles = []
@@ -195,10 +163,15 @@ def Main_con_puntaje(user_id):
             proyectil.dibujar(ventana)
             proyectil.mover()
 
-        rect_jugador = pygame.Rect(personaje.x, personaje.y, constantes.MUÑECA, constantes.MUÑECA)
+
+        # --- SOLO DEJA LA DE DISTANCIA ---
+        jugador_centro_x = personaje.x + constantes.PERSONAJE // 2
+        jugador_centro_y = personaje.y + constantes.PERSONAJE // 2
+        jugador_radio = int(constantes.PERSONAJE * 0.4)  # Ajusta este valor si es necesario
+
         for proyectil in proyectiles:
-            rect_bala = pygame.Rect(proyectil.x - proyectil.radio, proyectil.y - proyectil.radio, proyectil.radio * 2, proyectil.radio * 2)
-            if rect_jugador.colliderect(rect_bala):
+            distancia = math.hypot(proyectil.x - jugador_centro_x, proyectil.y - jugador_centro_y)
+            if distancia < proyectil.radio + jugador_radio:
                 pygame.time.wait(2000)
                 Main_con_puntaje(user_id)
                 return
@@ -216,25 +189,12 @@ def Main_con_puntaje(user_id):
 
 from usuarios_db import obtener_ranking
 
-# ...código del juego...
-# yang li no entendio 
 
 # Al final del juego, muestra el ranking:
 ranking = obtener_ranking()
 print("Ranking:")
 for i, (username, puntaje) in enumerate(ranking, 1):
     print(f"{i}. {username} - {puntaje} puntos")
-
-#TENGO HAMBRE, HACEMOS VACA?
-#HOLA
-#tenemos que comer algo pq estoy partida del hambre
-#bueno ya chao 
-
-
-#EN LA CASA HAY SOPA
-
-#hola y
-#mao dice chao
 
 
 if __name__ == '__main__':
