@@ -1,3 +1,6 @@
+from luzverdeluzroja import Main_con_puntaje
+from usuarios_db import login_usuario       
+
 import customtkinter as ctk
 from tkinter import messagebox
 import playsound
@@ -80,8 +83,17 @@ class Loggin:
         self.bandera = not self.bandera
 
     def abrirventana(self):
-        self.ventana.withdraw()
-        SessionWindow(self.ventana)
+        usuario = self.txtUsuario.get()
+        contraseña = self.txtPassword.get()
+         
+        user_id = login_usuario(usuario, contraseña)
+
+        if user_id:
+            self.ventana.destroy()
+            Main_con_puntaje(user_id) # inicia el jeugo 
+        else:
+            messagebox.showerror("Error", "Usuario o contraseña incorrectos.")
+
 
     def registrarUsuario(self):
         usuario = self.entryLoginUsuario.get()
