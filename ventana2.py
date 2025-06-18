@@ -1,3 +1,6 @@
+from usuarios_db import login_usuario
+from luzverdeluzroja import Main_con_puntaje
+
 import customtkinter as ctk
 from tkinter import messagebox
 import tkinter as tk
@@ -143,17 +146,26 @@ class SessionWindow:
     def iniciarSesion(self):
         usuario = self.entryLoginUsuario.get()
         password = self.entryLoginPassword.get()
-        # Aquí puedes integrar tu base de datos o lógica de autenticación
+
         if not usuario or not password:
             messagebox.showerror("Error", "Por favor, ingrese usuario y contraseña.")
-        else:
-            messagebox.showinfo("Sesión", f"Bienvenido, {usuario} (esto es solo un ejemplo).")
+            return
+        
+        user_id = login_usuario(usuario, password)
+
+        if user_id:
+            messagebox.showinfo( "Inicio de sesión exitoso.")
             self.ventana.destroy()
+
             try:
-                self.parent.destroy()  # Cierra la ventana principal también
+                self.perent.destroy()
             except:
                 pass
-            # Aquí puedes abrir la ventana del juego
+
+            Main_con_puntaje(user_id)  # Inicia el juego con el usuario registrado
+        else:
+            messagebox.showerror("Error", "Usuario o contraseña incorrectos.")
+       
 
     def registrarUsuario(self):
         usuario = self.entryLoginUsuario.get()
