@@ -13,7 +13,8 @@ from model.personaje import Personaje
 from model.mundo import Mundo
 from model.semaforo import Semaforo
 from model.proyectil import Proyectil
-from view.pantalla_gameover import game_over
+from view.pantalla_final import pantalla_final
+pantalla_final(ventana, tiempo_total, mensaje="GAME OVER", color_titulo=(234, 67, 53))
 from view.usuarios_db import obtener_ranking as obtener_ranking_view
 
 from view.usuarios_db import registrar_usuario, login_usuario
