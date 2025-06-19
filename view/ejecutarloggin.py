@@ -1,9 +1,7 @@
-from view.loggin import Loggin
+import customtkinter as ctk
 from view.ventana2 import SessionWindow
 
-if __name__ == "__main__":
-    import customtkinter as ctk
+def main():
     root = ctk.CTk()
-    root.withdraw()
     SessionWindow(root)
     root.mainloop()
