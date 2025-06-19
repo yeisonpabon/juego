@@ -1,4 +1,4 @@
-import db
+from model import db
 
 def guardar_puntaje(usuario_id, puntaje):
     conn = db.conectar()

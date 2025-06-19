@@ -1,11 +1,10 @@
 from controller.luzverdeluzroja import Main_con_puntaje
-from usuarios_db import login_usuario       
+from view.usuarios_db import login_usuario 
 
 import customtkinter as ctk
 from tkinter import messagebox
 import playsound
-from view.ventana2 import SessionWindow  # importamos la segunda ventana
-
+from view.ventana2 import SessionWindow
 # Tooltip mejorado
 import tkinter as tk
 class Tooltip:

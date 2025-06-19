@@ -1,7 +1,7 @@
 import pygame
 import sys
 import constantes
-from usuarios_db import obtener_ranking
+from model.puntajes_db import obtener_ranking
 
 def draw_rounded_rect(surface, color, rect, radius=16):
     try:

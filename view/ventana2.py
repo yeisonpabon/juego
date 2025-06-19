@@ -1,7 +1,7 @@
-from usuarios_db import registrar_usuario
-from usuarios_db import login_usuario
+from view.usuarios_db import registrar_usuario, login_usuario
 from controller.luzverdeluzroja import Main_con_puntaje
 
+from tkinter import messagebox
 import customtkinter as ctk
 from tkinter import messagebox
 import tkinter as tk
@@ -152,7 +152,7 @@ class SessionWindow:
             self.ventana.destroy()
 
             try:
-                self.perent.destroy()
+                self.parent.destroy()
             except:
                 pass
 

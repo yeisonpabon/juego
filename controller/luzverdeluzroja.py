@@ -14,9 +14,10 @@ from model.mundo import Mundo
 from model.semaforo import Semaforo
 from model.proyectil import Proyectil
 from view.pantalla_gameover import game_over
-from view.usuarios_db import obtener_ranking
+from view.usuarios_db import obtener_ranking as obtener_ranking_view
+
 from view.usuarios_db import registrar_usuario, login_usuario
-from model.puntajes_db import guardar_puntaje, obtener_ranking
+from model.puntajes_db import guardar_puntaje, obtener_ranking as obtener_ranking_model
 from model.puntajes_db import guardar_puntaje
 from view.pantalla_ganaste import Ganaste
 
@@ -188,7 +189,7 @@ def Main_con_puntaje(user_id):
 
 
 # Al final del juego, muestra el ranking:
-ranking = obtener_ranking()
+ranking = obtener_ranking_view()
 print("Ranking:")
 for i, (username, puntaje) in enumerate(ranking, 1):
     print(f"{i}. {username} - {puntaje} puntos")
