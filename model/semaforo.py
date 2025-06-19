@@ -22,6 +22,12 @@ class Semaforo:
 
     def dibujar(self, pantalla):
         color = (0, 255, 0) if self.estado == "LUZ VERDE" else (255, 0, 0)
-        pygame.draw.circle(pantalla, color, (500, 50), 30)  
+        centro = (500, 50)
+        radio = 30
 
+        # Dibuja el borde negro (más grande)
+        pygame.draw.circle(pantalla, (0, 0, 0), centro, radio + 4)
+
+        # Dibuja el círculo del semáforo encima
+        pygame.draw.circle(pantalla, color, centro, radio)
 
