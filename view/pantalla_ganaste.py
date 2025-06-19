@@ -13,7 +13,7 @@ def Ganaste(ventana, tiempo_total):
     pygame.font.init()
     fuente_titulo = pygame.font.SysFont("Segoe UI", 48, bold=True)
     fuente_normal = pygame.font.SysFont("Segoe UI", 28, bold=True)
-    fuente_btn = pygame.font.SysFont("Segoe UI", 24, bold=True)
+    fuente_btn = pygame.font.SysFont("Segoe UI", 20, bold=True)
     fuente_ranking = pygame.font.SysFont("Segoe UI", 22, bold=True)
 
     # Paleta de colores
