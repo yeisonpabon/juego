@@ -9,7 +9,7 @@ import math
 import time
 import random
 
-from personaje import Personaje
+from model.personaje import Personaje
 from model.mundo import Mundo
 from model.semaforo import Semaforo
 from model.proyectil import Proyectil
