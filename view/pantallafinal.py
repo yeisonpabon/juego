@@ -3,7 +3,14 @@ import pygame
 import sys
 import constantes
 from model.puntajes_db import obtener_ranking
-from view.helpers import draw_rounded_rect  # si ya la moviste a helpers
+from view.helpers import draw_rounded_rect
+
+
+def draw_rounded_rect(surface, color, rect, radius=16):
+    try:
+        pygame.draw.rect(surface, color, rect, border_radius=radius)
+    except TypeError:
+        pygame.draw.rect(surface, color, rect)
 
 def pantalla_final(ventana, tiempo_total, mensaje="GANASTE", color_titulo=(234, 67, 53)):
     pygame.font.init()

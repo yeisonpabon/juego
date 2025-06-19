@@ -9,7 +9,7 @@ def draw_rounded_rect(surface, color, rect, radius=16):
     except TypeError:
         pygame.draw.rect(surface, color, rect)
 
-def game_over(ventana, tiempo_total):
+def pantalla_final(ventana, tiempo_total):
     pygame.font.init()
     fuente_titulo = pygame.font.SysFont("Segoe UI", 48, bold=True)
     fuente_normal = pygame.font.SysFont("Segoe UI", 28, bold=True)
