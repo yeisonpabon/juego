@@ -13,14 +13,14 @@ from model.personaje import Personaje
 from model.mundo import Mundo
 from model.semaforo import Semaforo
 from model.proyectil import Proyectil
-from view.pantalla_final import pantalla_final
-pantalla_final(ventana, tiempo_total, mensaje="GAME OVER", color_titulo=(234, 67, 53))
+from view.pantallafinal import pantalla_final
+
 from view.usuarios_db import obtener_ranking as obtener_ranking_view
 
 from view.usuarios_db import registrar_usuario, login_usuario
 from model.puntajes_db import guardar_puntaje, obtener_ranking as obtener_ranking_model
 from model.puntajes_db import guardar_puntaje
-from view.pantalla_ganaste import Ganaste
+
 
 def cargar_sonido_verde():
     return pygame.mixer.Sound(r"musica\sonido_juego.mp3")
@@ -37,6 +37,9 @@ def Main_con_puntaje(user_id):
 
 
     ventana = pygame.display.set_mode((constantes.WIDTH, constantes.HEIGHT))
+
+
+    
     pygame.display.set_caption('LUZ VERDE LUZ ROJA')
     pygame.mixer.init()
     pygame.mixer.music.load(r'musica\sonido_juego.mp3')
@@ -110,7 +113,7 @@ def Main_con_puntaje(user_id):
             if salio_zona_segura and tiempo_inicio is not None:
                 tiempo_final = (pygame.time.get_ticks() - tiempo_inicio) // 1000
 
-            jugar_otra_vez = game_over(ventana, tiempo_final)
+            jugar_otra_vez = pantalla_final(ventana, tiempo_final)
             if jugar_otra_vez:
                 pygame.time.delay(1000)
                 Main_con_puntaje(user_id)
@@ -127,7 +130,7 @@ def Main_con_puntaje(user_id):
 
         if salio_zona_segura and tiempo_restante <= 0:
             pygame.time.delay(1000)
-            game_over(ventana, tiempo_limite)
+            pantalla_final(ventana, tiempo_final, mensaje="PERDISTE", color_titulo=(234, 67, 53))
             Main_con_puntaje(user_id)
             return
 
@@ -143,10 +146,13 @@ def Main_con_puntaje(user_id):
         # --- GUARDAR PUNTAJE AL GANAR ---
         if personaje.x + constantes.PERSONAJE >= META_X:
             pygame.time.delay(1500)
-            Ganaste(ventana, tiempo_limite)
+            if salio_zona_segura and tiempo_inicio is not None:
+                tiempo_total = (pygame.time.get_ticks() - tiempo_inicio) // 1000
+            else:
+                tiempo_total = 0
+            pantalla_final(ventana, tiempo_total, mensaje="GANASTE", color_titulo=(58, 134, 255))
             Main_con_puntaje(user_id)
             return
-
 
         mundo.Dibujar_mundo(ventana)
         personaje.Dibujar_personaje(ventana, semaforo)
@@ -167,7 +173,7 @@ def Main_con_puntaje(user_id):
             if distancia < proyectil.radio + jugador_radio:
                 pygame.time.wait(1000)
 
-                jugar_otra_vez = game_over(ventana, tiempo_limite - tiempo_restante)
+                jugar_otra_vez = pantalla_final(ventana, tiempo_limite - tiempo_restante)
                 if jugar_otra_vez:
                     Main_con_puntaje(user_id)
                 else:
