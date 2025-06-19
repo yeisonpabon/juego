@@ -23,7 +23,7 @@ from model.puntajes_db import guardar_puntaje
 
 
 def cargar_sonido_verde():
-    return pygame.mixer.Sound(r"musica\sonido_juego.mp3")
+    return pygame.mixer.Sound(r'musica\juageremod.mp3')
 
 
 
@@ -42,7 +42,7 @@ def Main_con_puntaje(user_id):
     
     pygame.display.set_caption('LUZ VERDE LUZ ROJA')
     pygame.mixer.init()
-    pygame.mixer.music.load(r'musica\sonido_juego.mp3')
+    pygame.mixer.music.load(r'musica\juageremod.mp3')
     pygame.mixer.music.set_volume(0.5)
     pygame.mixer.music.play(-1)
 

@@ -153,7 +153,7 @@ class SessionWindow:
         user_id = login_usuario(usuario, password)
 
         if user_id:
-            messagebox.showinfo( "Inicio de sesión exitoso.")
+            messagebox.showinfo(title="Aviso", message="Inicio de sesión exitoso.")
             self.ventana.destroy()
 
 

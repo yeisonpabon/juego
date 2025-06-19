@@ -2,7 +2,11 @@ import pygame
 import sys
 import constantes
 
+
+
 def mostrar_pantalla_inicio(ventana):
+    intro_sonido = pygame.mixer.Sound("musica/intro.mp3")
+    intro_sonido.play(-1)
     fuente_titulo = pygame.font.SysFont("Segoe UI", 48, bold=True)
     fuente_texto = pygame.font.SysFont("Segoe UI", 24)
     fuente_btn = pygame.font.SysFont("Segoe UI", 28, bold=True)
@@ -25,7 +29,10 @@ def mostrar_pantalla_inicio(ventana):
                 pygame.quit()
                 sys.exit()
             if evento.type == pygame.MOUSEBUTTONDOWN and btn_rect.collidepoint(evento.pos):
+                intro_sonido.stop()  # 🔇 Detén el sonido
                 esperando = False
+
+
 
         ventana.blit(blur, (0, 0))
 
