@@ -1,11 +1,16 @@
 from view.usuarios_db import registrar_usuario, login_usuario
 from controller.luzverdeluzroja import Main_con_puntaje
+from view.pantallainicio import mostrar_pantalla_inicio
+import pygame
+import constantes
+from view.pantallainicio import mostrar_pantalla_inicio
+from controller.luzverdeluzroja import Main_con_puntaje
+
 
 from tkinter import messagebox
 import customtkinter as ctk
 from tkinter import messagebox
 import tkinter as tk
-
 class Tooltip:
     def __init__(self, widget, text):
         self.widget = widget
@@ -151,12 +156,22 @@ class SessionWindow:
             messagebox.showinfo( "Inicio de sesión exitoso.")
             self.ventana.destroy()
 
+
+
+            ventana = pygame.display.set_mode((constantes.WIDTH, constantes.HEIGHT))
+         
+
             try:
                 self.parent.destroy()
             except:
                 pass
 
-            Main_con_puntaje(user_id)  # Inicia el juego con el usuario registrado
+            pygame.init()
+            ventana = pygame.display.set_mode((constantes.WIDTH, constantes.HEIGHT))
+            mostrar_pantalla_inicio(ventana)
+            Main_con_puntaje(user_id)
+
+
         else:
             messagebox.showerror("Error", "Usuario o contraseña incorrectos.")
        

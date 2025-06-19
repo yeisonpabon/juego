@@ -108,7 +108,7 @@ def Main_con_puntaje(user_id):
 
         # Evita eliminar justo en el frame de cambio
         if semaforo.estado == "LUZ ROJA" and moviendose and not semaforo.acaba_de_cambiar():
-            print("¡Te moviste en LUZ ROJA!")
+           
             tiempo_final = 0
             if salio_zona_segura and tiempo_inicio is not None:
                 tiempo_final = (pygame.time.get_ticks() - tiempo_inicio) // 1000
