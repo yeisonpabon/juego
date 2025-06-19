@@ -1,5 +1,5 @@
 from controller.luzverdeluzroja import Main_con_puntaje
-from view.usuarios_db import login_usuario       
+from usuarios_db import login_usuario       
 
 import customtkinter as ctk
 from tkinter import messagebox

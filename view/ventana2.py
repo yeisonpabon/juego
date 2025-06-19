@@ -1,5 +1,5 @@
-from view.usuarios_db import registrar_usuario
-from view.usuarios_db import login_usuario
+from usuarios_db import registrar_usuario
+from usuarios_db import login_usuario
 from controller.luzverdeluzroja import Main_con_puntaje
 
 import customtkinter as ctk

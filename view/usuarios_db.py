@@ -1,5 +1,5 @@
 import hashlib
-from model.db import db
+import model.db 
 
 def registrar_usuario(username, password):
     conn = db.conectar()
