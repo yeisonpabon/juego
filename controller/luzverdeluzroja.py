@@ -55,7 +55,7 @@ def Main_con_puntaje(user_id):
     estado_semaforo_anterior = None
 
     META_X = 990
-    tiempo_limite = 25
+    tiempo_limite = 40
     tiempo_inicio = pygame.time.get_ticks()
 
     proyectiles = []
