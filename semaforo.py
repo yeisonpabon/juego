@@ -22,6 +22,6 @@ class Semaforo:
 
     def dibujar(self, pantalla):
         color = (0, 255, 0) if self.estado == "LUZ VERDE" else (255, 0, 0)
-        pygame.draw.circle(pantalla, color, (500, 50), 30)  # centro arriba
+        pygame.draw.circle(pantalla, color, (500, 50), 30)  
 
 
