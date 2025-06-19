@@ -1,4 +1,3 @@
-# puntajes_db.py
 import db
 
 def guardar_puntaje(usuario_id, puntaje):
