@@ -1,10 +1,10 @@
 import pygame
 import constantes
 import os
-from mundo import Mundo
-from obstaculos import Arboles
+from model.mundo import Mundo
+from model.obstaculos import Arboles
 from constantes import *
-from semaforo import Semaforo
+from model.semaforo import Semaforo
 
 
 class Personaje():

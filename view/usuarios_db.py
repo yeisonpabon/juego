@@ -1,5 +1,5 @@
 import hashlib
-import db
+from model.db import db
 
 def registrar_usuario(username, password):
     conn = db.conectar()
@@ -37,7 +37,7 @@ def login_usuario(username, password):
     else:
         return None
     
-import db
+
 
 def obtener_ranking():
     conn = db.conectar()

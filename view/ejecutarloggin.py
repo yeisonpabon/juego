@@ -1,5 +1,5 @@
-from loggin import Loggin
-from ventana2 import SessionWindow
+from view.loggin import Loggin
+from view.ventana2 import SessionWindow
 
 if __name__ == "__main__":
     import customtkinter as ctk

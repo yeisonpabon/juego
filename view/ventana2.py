@@ -1,6 +1,6 @@
-from usuarios_db import registrar_usuario
-from usuarios_db import login_usuario
-from luzverdeluzroja import Main_con_puntaje
+from view.usuarios_db import registrar_usuario
+from view.usuarios_db import login_usuario
+from controller.luzverdeluzroja import Main_con_puntaje
 
 import customtkinter as ctk
 from tkinter import messagebox
