@@ -10,8 +10,8 @@ import time
 import random
 
 from personaje import Personaje
-from mundo import Mundo
-from semaforo import Semaforo
+from model.mundo import Mundo
+from model.semaforo import Semaforo
 from proyectil import Proyectil
 from pantalla_gameover import game_over
 from usuarios_db import obtener_ranking
