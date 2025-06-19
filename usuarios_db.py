@@ -1,5 +1,3 @@
-# usuarios_db.py
-
 import hashlib
 import db
 
