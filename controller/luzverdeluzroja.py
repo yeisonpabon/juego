@@ -4,7 +4,7 @@ yeison andres villegas pabon"""
 
 import pygame 
 import sys
-import constantes
+from constantes import constantes
 import math
 import time
 import random
