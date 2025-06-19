@@ -195,5 +195,5 @@ for i, (username, puntaje) in enumerate(ranking, 1):
 
 
 if __name__ == '__main__':
-    from loggin import Loggin
+    from view.loggin import Loggin
 
