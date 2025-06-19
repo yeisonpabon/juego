@@ -4,8 +4,8 @@ class Proyectil:
     def __init__(self, x, y, dx, dy):
         self.x = x
         self.y = y
-        self.dx = dx  # Dirección en X
-        self.dy = dy  # Dirección en Y
+        self.dx = dx  
+        self.dy = dy  
         self.radio = 7
         self.color = (255, 0, 0)
         self.velocidad = 5
