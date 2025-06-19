@@ -113,7 +113,7 @@ def Main_con_puntaje(user_id):
             if salio_zona_segura and tiempo_inicio is not None:
                 tiempo_final = (pygame.time.get_ticks() - tiempo_inicio) // 1000
 
-            jugar_otra_vez = pantalla_final(ventana, tiempo_final)
+            jugar_otra_vez = pantalla_final(ventana, tiempo_final, mensaje="PERDISTE", color_titulo=(234, 67, 53))
             if jugar_otra_vez:
                 pygame.time.delay(1000)
                 Main_con_puntaje(user_id)
@@ -202,6 +202,4 @@ for i, (username, puntaje) in enumerate(ranking, 1):
     print(f"{i}. {username} - {puntaje} puntos")
 
 
-if __name__ == '__main__':
-    from view.loggin import Loggin
 
