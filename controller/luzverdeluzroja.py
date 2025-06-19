@@ -25,12 +25,13 @@ from model.puntajes_db import guardar_puntaje
 def cargar_sonido_verde():
     return pygame.mixer.Sound(r'musica\juageremod.mp3')
 
+def cargar_sonido_rojo():
+    return pygame.mixer.Sound(r'musica\espalda.mp3')  # Cambia el nombre al que estés usando
 
 
 
 #inicializar pygame
 pygame.init()
-
 
 
 def Main_con_puntaje(user_id):
@@ -47,6 +48,7 @@ def Main_con_puntaje(user_id):
     pygame.mixer.music.play(-1)
 
     sonido_verde = cargar_sonido_verde()
+    sonido_rojo = cargar_sonido_rojo()
 
     reloj = pygame.time.Clock()
     mundo = Mundo(constantes.WIDTH, constantes.HEIGHT)
@@ -79,12 +81,14 @@ def Main_con_puntaje(user_id):
 
         semaforo.actualizar()
 
-        if semaforo.estado == "LUZ VERDE":
-            if not pygame.mixer.music.get_busy():
-                pygame.mixer.music.play(-1)
-        else:
-            if pygame.mixer.music.get_busy():
+        if semaforo.estado != estado_semaforo_anterior:
+            if semaforo.estado == "LUZ VERDE":
+                if not pygame.mixer.music.get_busy():
+                    pygame.mixer.music.play(-1)
+                sonido_rojo.stop()
+            else:
                 pygame.mixer.music.stop()
+                sonido_rojo.play(-1)
 
         estado_semaforo_anterior = semaforo.estado
 
@@ -116,10 +120,13 @@ def Main_con_puntaje(user_id):
             jugar_otra_vez = pantalla_final(ventana, tiempo_final, mensaje="PERDISTE", color_titulo=(234, 67, 53))
             if jugar_otra_vez:
                 pygame.time.delay(1000)
+                pygame.mixer.stop()
                 Main_con_puntaje(user_id)
+                pygame.mixer.stop()
             else:
                 pygame.quit()
                 sys.exit()
+
 
         if salio_zona_segura:
             tiempo_actual_ticks = pygame.time.get_ticks()
@@ -176,9 +183,11 @@ def Main_con_puntaje(user_id):
                 jugar_otra_vez = pantalla_final(ventana, tiempo_limite - tiempo_restante)
                 if jugar_otra_vez:
                     Main_con_puntaje(user_id)
+                    pygame.mixer.stop()
                 else:
                     pygame.quit()
                     sys.exit()
+
                 return
 
         proyectiles = [p for p in proyectiles if 0 <= p.x <= constantes.WIDTH and 0 <= p.y <= constantes.HEIGHT]
