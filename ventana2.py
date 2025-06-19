@@ -54,18 +54,15 @@ class SessionWindow:
         self.ventana.configure(fg_color="#f4f6fb")
         self.ventana.protocol("WM_DELETE_WINDOW", self.cerrar_todo)
 
-        # Frame centrado
         self.frame = ctk.CTkFrame(self.ventana, fg_color="#ffffff", corner_radius=16, width=420, height=520)
         self.frame.place(relx=0.5, rely=0.5, anchor="center")
 
-        # Título
         self.lblTitulo = ctk.CTkLabel(
             self.frame, text="INICIO DE SESIÓN", font=("Segoe UI", 24, "bold"),
             text_color="#22223b", fg_color="#ffffff", width=320, height=50
         )
         self.lblTitulo.pack(pady=(30, 20))
 
-        # Usuario
         self.entryLoginUsuario = ctk.CTkEntry(
             self.frame, placeholder_text="Usuario", width=260, height=40, font=("Segoe UI", 16),
             fg_color="#f4f6fb", border_width=2, border_color="#e0e1dd", text_color="#22223b"
@@ -73,7 +70,6 @@ class SessionWindow:
         self.entryLoginUsuario.pack(pady=10)
         Tooltip(self.entryLoginUsuario, "Ingrese su usuario registrado.")
 
-        # Contraseña
         self.entryLoginPassword = ctk.CTkEntry(
             self.frame, placeholder_text="Contraseña", show="•", width=260, height=40, font=("Segoe UI", 16),
             fg_color="#f4f6fb", border_width=2, border_color="#e0e1dd", text_color="#22223b"
@@ -81,7 +77,6 @@ class SessionWindow:
         self.entryLoginPassword.pack(pady=10)
         Tooltip(self.entryLoginPassword, "Ingrese su contraseña registrada.")
 
-        # Botón Entrar
         self.btnEntrar = ctk.CTkButton(
             self.frame, text="Entrar", font=("Segoe UI", 16, "bold"),
             fg_color="#3a86ff", text_color="#fff", hover_color="#22223b", width=180, height=40,
@@ -90,7 +85,6 @@ class SessionWindow:
         self.btnEntrar.pack(pady=10)
         Tooltip(self.btnEntrar, "Entrar con usuario y contraseña.")
 
-        # Botón Registrar
         self.btnRegistrar = ctk.CTkButton(
             self.frame, text="Registrar", font=("Segoe UI", 14, "bold"),
             fg_color="#3a86ff", text_color="#fff", hover_color="#22223b", width=180, height=36,
@@ -99,7 +93,6 @@ class SessionWindow:
         self.btnRegistrar.pack(pady=(0, 10))
         Tooltip(self.btnRegistrar, "Registrar un nuevo usuario.")
 
-        # Botón ¿Cómo jugar?
         self.btnComoJugar = ctk.CTkButton(
             self.frame, text="¿Cómo jugar?", font=("Segoe UI", 14, "bold"),
             fg_color="#e0e1dd", text_color="#22223b", hover_color="#bfc0c0", width=180, height=36,
@@ -108,7 +101,6 @@ class SessionWindow:
         self.btnComoJugar.pack(pady=(0, 10))
         Tooltip(self.btnComoJugar, "Ver instrucciones del juego.")
 
-        # Botón Ayuda
         self.btnAyuda = ctk.CTkButton(
             self.ventana, text="?", width=40, height=40, fg_color="#e0e1dd", text_color="#22223b",
             hover_color="#bfc0c0", font=("Segoe UI", 18, "bold"), command=self.mostrarAyuda
