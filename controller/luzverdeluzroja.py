@@ -12,13 +12,13 @@ import random
 from personaje import Personaje
 from model.mundo import Mundo
 from model.semaforo import Semaforo
-from proyectil import Proyectil
-from pantalla_gameover import game_over
-from usuarios_db import obtener_ranking
-from usuarios_db import registrar_usuario, login_usuario
-from puntajes_db import guardar_puntaje, obtener_ranking
-from puntajes_db import guardar_puntaje
-from pantalla_ganaste import Ganaste
+from model.proyectil import Proyectil
+from view.pantalla_gameover import game_over
+from view.usuarios_db import obtener_ranking
+from view.usuarios_db import registrar_usuario, login_usuario
+from model.puntajes_db import guardar_puntaje, obtener_ranking
+from model.puntajes_db import guardar_puntaje
+from view.pantalla_ganaste import Ganaste
 
 def cargar_sonido_verde():
     return pygame.mixer.Sound(r"musica\sonido_juego.mp3")
