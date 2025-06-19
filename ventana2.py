@@ -134,6 +134,7 @@ class SessionWindow:
             "- Presiona la tecla RIGHT para avanzar.\n"
             "- Evita los obstáculos ÁRBOLES y las balas rojas.\n"
             "- Para ganar debes cruzar la meta en el tiempo establecido.\n"
+            "- Si te mueves con LUZ ROJA, pierdes.\n"
         )
 
     def mostrarAyuda(self):

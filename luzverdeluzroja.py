@@ -20,6 +20,11 @@ from puntajes_db import guardar_puntaje, obtener_ranking
 from puntajes_db import guardar_puntaje
 from pantalla_ganaste import Ganaste
 
+def cargar_sonido_verde():
+    return pygame.mixer.Sound(r"musica\sonido_juego.mp3")
+
+
+
 
 #inicializar pygame
 pygame.init()
@@ -29,22 +34,23 @@ pygame.init()
 def Main_con_puntaje(user_id):
 
 
-    
-    ventana = pygame.display.set_mode((constantes.WIDTH,constantes.HEIGHT))  
-
+    ventana = pygame.display.set_mode((constantes.WIDTH, constantes.HEIGHT))
     pygame.display.set_caption('LUZ VERDE LUZ ROJA')
     pygame.mixer.init()
     pygame.mixer.music.load(r'musica\sonido_juego.mp3')
     pygame.mixer.music.set_volume(0.5)
     pygame.mixer.music.play(-1)
 
+    sonido_verde = cargar_sonido_verde()
+
     reloj = pygame.time.Clock()
     mundo = Mundo(constantes.WIDTH, constantes.HEIGHT)
     personaje = Personaje(constantes.WIDTH // 50, constantes.HEIGHT // 2)
     semaforo = Semaforo()
+    estado_semaforo_anterior = None
 
     META_X = 990
-    tiempo_limite = 20
+    tiempo_limite = 25
     tiempo_inicio = pygame.time.get_ticks()
 
     proyectiles = []
@@ -55,6 +61,9 @@ def Main_con_puntaje(user_id):
     salio_zona_segura = False
     tiempo_inicio = None
 
+
+
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -64,12 +73,21 @@ def Main_con_puntaje(user_id):
         keys = pygame.key.get_pressed()
 
         semaforo.actualizar()
-        tiempo_actual = time.time()
+
+        if semaforo.estado == "LUZ VERDE":
+            if not pygame.mixer.music.get_busy():
+                pygame.mixer.music.play(-1)
+        else:
+            if pygame.mixer.music.get_busy():
+                pygame.mixer.music.stop()
+
+        estado_semaforo_anterior = semaforo.estado
 
         if not salio_zona_segura and not zona_segura.collidepoint(personaje.x, personaje.y):
             salio_zona_segura = True
             tiempo_inicio = pygame.time.get_ticks()
 
+        tiempo_actual = pygame.time.get_ticks() / 1000  # tiempo en segundos
         if semaforo.estado == "LUZ VERDE" and (tiempo_actual - ultimo_disparo) > intervalo_disparo:
             x_muñeca = constantes.WIDTH - constantes.MUÑECA // 2
             y_muñeca = (constantes.HEIGHT - constantes.MUÑECA) // 2 + constantes.MUÑECA // 2
