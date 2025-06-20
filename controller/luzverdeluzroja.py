@@ -173,7 +173,7 @@ def Main_con_puntaje(user_id):
         # --- SOLO DEJA LA DE DISTANCIA ---
         jugador_centro_x = personaje.x + constantes.PERSONAJE // 2
         jugador_centro_y = personaje.y + constantes.PERSONAJE // 2
-        jugador_radio = int(constantes.PERSONAJE * 0.4)  # Ajusta este valor si es necesario
+        jugador_radio = int(constantes.PERSONAJE * 0.4)  
 
         for proyectil in proyectiles:
             distancia = math.hypot(proyectil.x - jugador_centro_x, proyectil.y - jugador_centro_y)
