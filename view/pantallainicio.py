@@ -31,7 +31,9 @@ def mostrar_pantalla_inicio(ventana):
             if evento.type == pygame.MOUSEBUTTONDOWN and btn_rect.collidepoint(evento.pos):
                 intro_sonido.stop()  # 🔇 Detén el sonido
                 esperando = False
-
+            if evento.type == pygame.KEYDOWN and evento.key == pygame.K_RETURN:
+                intro_sonido.stop()
+                esperando = False
 
 
         ventana.blit(blur, (0, 0))
