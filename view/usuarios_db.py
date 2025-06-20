@@ -1,5 +1,6 @@
 import hashlib
 from model import db
+from tkinter import messagebox
 
 def registrar_usuario(username, password):
     conn = db.conectar()
@@ -9,17 +10,17 @@ def registrar_usuario(username, password):
         # Verificar si el usuario ya existe
         cur.execute("SELECT id FROM usuarios WHERE username = %s", (username,))
         if cur.fetchone():
-            print("El usuario ya existe.")
+            messagebox.showinfo("","El usuario ya existe.")
             return False
         cur.execute(
             "INSERT INTO usuarios (username, password) VALUES (%s, %s)",
             (username, password_hash)
         )
         conn.commit()
-        print("Usuario registrado.")
+        messagebox.showinfo("","Usuario registrado.")
         return True
     except Exception as e:
-        print("Error al registrar:", repr(e))
+        messagebox.showerror("error","Error al registrar:", repr(e))
         return False
     finally:
         conn.close()
