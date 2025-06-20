@@ -112,7 +112,7 @@ class SessionWindow:
         )
         self.btnAyuda.place(x=420, y=30)
         Tooltip(self.btnAyuda, "Ayuda")
-
+        self.ventana.bind('<Return>', lambda event: self.iniciarSesion())
     def cerrar_todo(self):
         self.ventana.destroy()
         try:

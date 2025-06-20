@@ -204,11 +204,7 @@ def Main_con_puntaje(user_id):
 
 
 
-# Al final del juego, muestra el ranking:
-ranking = obtener_ranking_view()
-print("Ranking:")
-for i, (username, puntaje) in enumerate(ranking, 1):
-    print(f"{i}. {username} - {puntaje} puntos")
+
 
 
 
